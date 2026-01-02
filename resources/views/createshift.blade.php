@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Payaasaan - Shift Details</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('siteassets/css/style.css') }}">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ========== TOPBAR (KEPT EXACTLY AS YOUR ORIGINAL) ========== -->
+    <div class="d-flex align-items-center justify-content-between p-3 border-bottom bg-white topbar-fixed"
+        style="height:60px;">
+
+        <div class="left-30">
+            <i class="bi bi-list mobile-toggle d-none" aria-hidden="true"></i>
+
+            <div>
+                <h4 class="logo-title">PAYAASAAN</h4>
+                <p class="logo-sub d-flex text-center">Powered By<br>Thathwam Technologies</p>
+            </div>
+        </div>
+
+        <div class="right-70 d-flex align-items-center justify-content-between" style="width:80%;padding:0px 10px;">
+
+            <div class="breadcrumb-area">
+                <span class="fw-semibold mas">Master</span>
+                <span class="mx-1 text-secondary">/</span>
+                <span class="mas semibold">Shift Details</span>
+            </div>
+
+            <div class="d-flex align-items-center gap-4">
+
+                <div class="search-box position-relative" style="width:350px;">
+                    <i class="bi bi-search search-icon"></i>
+                    <input type="text" class="form-control search-input" placeholder="What are you looking for ?">
+                </div>
+
+                <i class="bi bi-bell bell-icon" style="font-size:20px; cursor:pointer;"></i>
+
+                <div class="dropdown">
+                    <div class="profile-group" data-bs-toggle="dropdown">
+                        <img src="{{ asset('siteassets/img/user.png') }}" class="profile-img" alt="">
+                        <span class="username-text">Peter Griffin</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+
+                    <ul class="dropdown-menu dropdown-menu-end mt-2">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Profile</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-key"></i> Change Password</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item logout" href="#"><i class="bi bi-box-arrow-right"></i>
+                                Logout</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- ========== /TOPBAR ========== -->
+
+    <!-- overlay for mobile when sidebar open -->
+    <div id="sidebarOverlay" class="overlay" aria-hidden="true"></div>
+
+    <div style="display:flex; min-height: calc(100vh - 60px);">
+
+
+        <!-- SIDEBAR INCLUDE -->
+        @include('partials.sidebar')
+
+        <!-- CONTENT -->
+        <main class="content-area bg-white">
+            <div class="container-fluid mt-3">
+
+                <!-- Top Two Fields -->
+                <div class="row g-4 mb-3">
+
+                    <!-- Company -->
+                    <div class="col-md-3">
+                        <label class="form-label">Company <span class="text-danger">*</span></label>
+                        <div class="position-relative">
+                            <select class="form-select">
+                                <option>Select Company</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Legal Entity -->
+                    <div class="col-md-3">
+                        <label class="form-label">Legal Entity <span class="text-danger">*</span></label>
+                        <div class="position-relative">
+                            <select class="form-select">
+                                <option>Select Legal Entity</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Branch -->
+                    <div class="col-md-3">
+                        <label class="form-label">Branch <span class="text-danger">*</span></label>
+                        <div class="position-relative">
+                            <select class="form-select">
+                                <option>Select Branch</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Shift Type -->
+                    <div class="col-md-3">
+                        <label class="form-label">Shift Type <span class="text-danger">*</span></label>
+                        <div class="position-relative">
+                            <select class="form-select">
+                                <option>Select Shift</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="row g-4 mb-3">
+
+                    <!-- Start Time -->
+                    <div class="col-md-3">
+                        <label class="form-label">Start Time <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <input type="time" class="form-control">
+                        </div>
+                    </div>
+
+                    <!-- End Time -->
+                    <div class="col-md-3">
+                        <label class="form-label">End Time <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <input type="time" class="form-control">
+                        </div>
+                    </div>
+
+                    <!-- Interval From -->
+                    <div class="col-md-3">
+                        <label class="form-label">Interval From <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <input type="time" class="form-control">
+                        </div>
+                    </div>
+
+                    <!-- Interval To -->
+                    <div class="col-md-3">
+                        <label class="form-label">Interval To <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <input type="time" class="form-control">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row g-4 mb-3">
+
+                    <!-- Grace Start Time -->
+                    <div class="col-md-3">
+                        <label class="form-label">Grace Start Time <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <input type="time" class="form-control">
+                        </div>
+                    </div>
+
+                    <!-- Grace End Time -->
+                    <div class="col-md-3">
+                        <label class="form-label">Grace End Time <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <input type="time" class="form-control">
+                        </div>
+                    </div>
+
+                    <!-- Night Shift Applicability -->
+                    <div class="col-md-3 d-flex align-items-center" style="margin-top:30px;">
+                        <label class="d-flex align-items-center gap-2">
+                            <input type="checkbox">
+                            <span class="size-of-font">Night Shift Applicability</span>
+                        </label>
+                    </div>
+
+                    <!-- Shift Allowance Applicability -->
+                    <div class="col-md-3 d-flex align-items-center" style="margin-top:30px;">
+                        <label class="d-flex align-items-center gap-2">
+                            <input type="checkbox">
+                            <span class="size-of-font">Shift Allowance Applicability</span>
+                        </label>
+                    </div>
+
+                </div>
+
+                {{-- card code --}}
+                <div class="card p-0 mt-4 cardborder">
+                    <div class="d-flex justify-content-between align-items-center cardheader">
+
+                        <span>National Holiday</span>
+
+                        <button class="btn btn-primary px-3 py-1">
+                            <i class="bi bi-plus-circle me-1"></i> Add
+                        </button>
+
+                    </div>
+
+
+                    <div class="p-4">
+                        <div class="row g-4">
+
+                            <!-- Description -->
+                            <div class="col-md-2">
+                                <label class="form-label">Description</label>
+                                <input type="text" class="form-control" placeholder="Enter Description">
+                            </div>
+
+                            <!-- Date -->
+                            <div class="col-md-3">
+                                <label class="form-label">Date <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input type="date" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Working Day Checkbox -->
+                            <div class="col-md-3 d-flex" style="margin-top:50px;">
+                                <label class="d-flex align-items-center gap-2">
+                                    <input type="checkbox" checked>
+                                    <span class="checkfont">Working Day Applicability</span>
+                                </label>
+                            </div>
+
+                            <!-- Days -->
+                            <div class="col-md-3">
+                                <label class="form-label">Days</label>
+                                <input type="text" class="form-control" placeholder="Enter Days">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                {{-- <div class="card p-0 mt-4 cardborder">
+                    <div class="d-flex justify-content-between align-items-center cardheader">
+
+                        <span>Festival Holiday</span>
+
+                        <button class="btn btn-primary px-3 py-1">
+                            <i class="bi bi-plus-circle me-1"></i> Add
+                        </button>
+
+                    </div>
+
+
+                    <div class="p-4">
+                        <div class="row g-4">
+
+                            <!-- Description -->
+                            <div class="col-md-4">
+                                <label class="form-label">Description</label>
+                                <input type="text" class="form-control" placeholder="Enter Description">
+                            </div>
+
+                            <!-- Date -->
+                            <div class="col-md-4">
+                                <label class="form-label">Date <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input type="date" class="form-control">
+
+                                </div>
+                            </div>
+
+                            <!-- Working Day Checkbox -->
+                            <div class="col-md-4 d-flex" style="margin-top:50px;">
+                                <label class="d-flex align-items-center gap-2">
+                                    <input type="checkbox" checked>
+                                    <span class="checkfont">Working Day Applicability</span>
+                                </label>
+                            </div>
+
+                            <!-- Days -->
+                            <div class="col-md-4">
+                                <label class="form-label">Days</label>
+                                <input type="text" class="form-control" placeholder="Enter Days">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="card p-0 mt-4 cardborder">
+                    <div class="d-flex justify-content-between align-items-center cardheader">
+
+                        <span>Custom Holiday</span>
+
+                        <button class="btn btn-primary px-3 py-1">
+                            <i class="bi bi-plus-circle me-1"></i> Add
+                        </button>
+
+                    </div>
+
+
+                    <div class="p-4">
+                        <div class="row g-4">
+
+                            <!-- Description -->
+                            <div class="col-md-4">
+                                <label class="form-label">Description</label>
+                                <input type="text" class="form-control" placeholder="Enter Description">
+                            </div>
+
+                            <!-- Date -->
+                            <div class="col-md-4">
+                                <label class="form-label">Date <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input type="date" class="form-control">
+
+                                </div>
+                            </div>
+
+                            <!-- Notation -->
+                            <div class="col-md-4">
+                                <label class="form-label">Notation</label>
+                                <input type="text" class="form-control" placeholder="Enter Description">
+                            </div>
+
+                            <!-- Second Date Field -->
+                            <div class="col-md-4">
+                                <label class="form-label">Date</label>
+                                <input type="text" class="form-control" placeholder="Enter Date">
+                            </div>
+
+                            <!-- Working Day Checkbox -->
+                            <div class="col-md-4 d-flex" style="margin-top: 50px">
+                                <label class="d-flex align-items-center gap-2">
+                                    <input type="checkbox" checked>
+                                    <span class="checkfont">Working Day Applicability</span>
+                                </label>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div> --}}
+
+                <div class="card p-0 cardborder mt-4">
+
+                    <!-- Header -->
+                    <div class="cardheader">
+                        Holiday Master List
+                    </div>
+
+                    <!-- Body -->
+                    <div class="p-4">
+
+                        <!-- Search + Go -->
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="position-relative" style="width:260px;">
+                                <input type="text" class="form-control" placeholder="Search by Field Name">
+                                <i class="bi bi-search position-absolute"
+                                    style="right:12px; top:50%; transform:translateY(-50%); font-size:14px;"></i>
+                            </div>
+                            <button class="btn btn-primary px-3">Go</button>
+                        </div>
+
+                        <!-- TABLE -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered mb-0 custom-table">
+                                <thead>
+                                    <tr>
+                                        <th class="">S. No</th>
+                                        <th>Company</th>
+                                        <th>Legal Entity</th>
+                                        <th>Branch</th>
+                                        <th>Shift Type</th>
+                                        <th>Start Time</th>
+                                        <th>End Time</th>
+                                        <th>Grace Start Time</th>
+                                        <th>Grace End Time</th>
+                                        <th>Interval From</th>
+                                        <th>Interval To</th>
+                                        <th>Applicability</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td class="">1</td>
+                                        <td>Biffco Enterprises Ltd.</td>
+                                        <td>Barone LLC.</td>
+                                        <td>Hanoi Central</td>
+                                        <td>Split Shift</td>
+                                        <td>15 May 2020 8:00 am</td>
+                                        <td>15 May 2020 8:30 am</td>
+                                        <td>15 May 2020 9:30 am</td>
+                                        <td>15 May 2020 9:00 am</td>
+                                        <td>15 May 2020 8:30 am</td>
+                                        <td>15 May 2020 9:30 am</td>
+                                        <td class="text-center"><input type="checkbox" checked></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="sticky-col">2</td>
+                                        <td>Big Kahuna Burger Ltd.</td>
+                                        <td>Acme Co.</td>
+                                        <td>HCM Central</td>
+                                        <td>PM Shift</td>
+                                        <td>15 May 2020 8:30 am</td>
+                                        <td>15 May 2020 8:00 am</td>
+                                        <td>15 May 2020 8:30 am</td>
+                                        <td>15 May 2020 8:30 am</td>
+                                        <td>15 May 2020 9:00 am</td>
+                                        <td>15 May 2020 8:00 am</td>
+                                        <td class="text-center"><input type="checkbox" checked></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="sticky-col">3</td>
+                                        <td>Abstergo Ltd.</td>
+                                        <td>Binford Ltd.</td>
+                                        <td>Hoi An</td>
+                                        <td>Weekend Shift</td>
+                                        <td>15 May 2020 9:30 am</td>
+                                        <td>15 May 2020 8:00 am</td>
+                                        <td>15 May 2020 8:30 am</td>
+                                        <td>15 May 2020 9:00 am</td>
+                                        <td>15 May 2020 8:00 am</td>
+                                        <td>15 May 2020 9:30 am</td>
+                                        <td class="text-center"><input type="checkbox" checked></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="sticky-col">4</td>
+                                        <td>Acme Co.</td>
+                                        <td>Big Kahuna Burger Ltd.</td>
+                                        <td>Danang Central</td>
+                                        <td>Overnight Shift</td>
+                                        <td>15 May 2020 9:30 am</td>
+                                        <td>15 May 2020 9:30 am</td>
+                                        <td>15 May 2020 9:00 am</td>
+                                        <td>15 May 2020 8:00 am</td>
+                                        <td>15 May 2020 9:00 am</td>
+                                        <td>15 May 2020 8:00 am</td>
+                                        <td class="text-center"><input type="checkbox" checked></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="sticky-col">5</td>
+                                        <td>Barone LLC.</td>
+                                        <td>Abstergo Ltd.</td>
+                                        <td>Can Tho</td>
+                                        <td>Full Day Shift</td>
+                                        <td>15 May 2020 9:00 am</td>
+                                        <td>15 May 2020 8:30 am</td>
+                                        <td>15 May 2020 9:00 am</td>
+                                        <td>15 May 2020 8:30 am</td>
+                                        <td>15 May 2020 8:30 am</td>
+                                        <td>15 May 2020 8:00 am</td>
+                                        <td class="text-center"><input type="checkbox" checked></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="sticky-col">6</td>
+                                        <td>Binford Ltd.</td>
+                                        <td>Biffco Enterprises Ltd.</td>
+                                        <td>Hanoi Central</td>
+                                        <td>Rest Day</td>
+                                        <td>15 May 2020 8:00 am</td>
+                                        <td>15 May 2020 9:00 am</td>
+                                        <td>15 May 2020 8:00 am</td>
+                                        <td>15 May 2020 9:30 am</td>
+                                        <td>15 May 2020 8:00 am</td>
+                                        <td>15 May 2020 8:30 am</td>
+                                        <td class="text-center"><input type="checkbox"></td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                        <!-- FOOTER + PAGINATION -->
+                        <div class="d-flex flex-wrap justify-content-between align-items-center pt-3">
+                            <!-- Total Data -->
+                            <span class="text-muted mb-2 mb-md-0" style="font-size:13px;">
+                                A total of 89 data
+                            </span>
+
+                            <!-- Pagination + Items Per Page -->
+                            <div class="d-flex flex-wrap align-items-center gap-3">
+
+                                <!-- Pagination -->
+                                <nav>
+                                    <ul class="pagination pagination-sm mb-0">
+                                        <li class="page-item disabled">
+                                            <a class="page-link">&lt;</a>
+                                        </li>
+
+                                        <li class="page-item active">
+                                            <a class="page-link">1</a>
+                                        </li>
+
+                                        <li class="page-item"><a class="page-link">2</a></li>
+                                        <li class="page-item"><a class="page-link">3</a></li>
+                                        <li class="page-item"><a class="page-link">4</a></li>
+                                        <li class="page-item"><a class="page-link">5</a></li>
+
+                                        <li class="page-item">
+                                            <a class="page-link">&gt;</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+
+                                <!-- Items/Page Dropdown -->
+                                <select class="form-select form-select-sm" style="width:140px;">
+                                    <option selected>10 Items/Page</option>
+                                    <option>20 Items/Page</option>
+                                    <option>50 Items/Page</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="d-flex justify-content-end gap-3 mt-4">
+                    <button class="btn btn-outline-primary px-4">Cancel</button>
+                    <button class="btn btn-primary px-4">Submit</button>
+                </div>
+                <!-- BASIC DETAILS CARD -->
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+    @include('partials.footer')
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Elements
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+
+        // Use event delegation for the toggle icon - works even if class d-none exists
+        document.addEventListener('click', (e) => {
+            const toggle = e.target.closest('.mobile-toggle');
+            if (toggle) {
+                // toggle sidebar open/close
+                const isClosed = sidebar.classList.contains('closed');
+                if (isClosed) {
+                    sidebar.classList.remove('closed');
+                    overlay.classList.add('show');
+                } else {
+                    sidebar.classList.add('closed');
+                    overlay.classList.remove('show');
+                }
+            }
+
+            // close sidebar when overlay clicked
+            if (e.target === overlay) {
+                sidebar.classList.add('closed');
+                overlay.classList.remove('show');
+            }
+        });
+
+        // Hide sidebar by default on small screens, show on desktop
+        function setSidebarStateOnLoad() {
+            if (window.matchMedia('(max-width: 768px)').matches) {
+                sidebar.classList.add('closed');
+                overlay.classList.remove('show');
+            } else {
+                // ensure sidebar visible on desktop
+                sidebar.classList.remove('closed');
+                overlay.classList.remove('show');
+            }
+        }
+
+        // run on load
+        setSidebarStateOnLoad();
+
+        // on resize adjust state (keeps desktop open, mobile closed)
+        window.addEventListener('resize', () => {
+            setSidebarStateOnLoad();
+        });
+
+        // make main menu clickable to set active state and auto-toggle others (optional behavior)
+        document.querySelectorAll('.sidebar-main-item').forEach(item => {
+            item.addEventListener('click', (ev) => {
+                // mark clicked main menu active and remove active from siblings
+                document.querySelectorAll('.sidebar-main-item')
+                    .forEach(i => {
+                        if (!i.classList.contains('page-active')) i.classList.remove('active');
+                    });
+
+                item.classList.add('active');
+
+                // allow bootstrap collapse to manage submenu show/hide; when opening, show overlay on mobile
+                const target = item.getAttribute('data-bs-target');
+                if (target) {
+                    // after a small delay check if submenu opened and if on mobile show overlay
+                    setTimeout(() => {
+                        const panel = document.querySelector(target);
+                        if (panel && panel.classList.contains('show') && window.matchMedia(
+                                '(max-width:768px)').matches) {
+                            overlay.classList.add('show');
+                            sidebar.classList.remove('closed');
+                        } else {
+                            overlay.classList.remove('show');
+                        }
+                    }, 220);
+                }
+            });
+        });
+
+        // submenu item click - mark active and close sidebar on mobile (optional UX)
+        document.querySelectorAll('.submenu-item').forEach(si => {
+            si.addEventListener('click', () => {
+                document.querySelectorAll('.submenu-item')
+                    .forEach(s => {
+                        if (!s.classList.contains('page-active')) s.classList.remove('active');
+                    });
+
+                si.classList.add('active');
+
+                // on small screens auto-close sidebar
+                if (window.matchMedia('(max-width:768px)').matches) {
+                    sidebar.classList.add('closed');
+                    overlay.classList.remove('show');
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // ADD PAGE-BASED ACTIVE (permanent)
+            const pageMain = document.querySelector('[data-bs-target="#masterMenu"]');
+            const pageSub = document.querySelectorAll('#masterMenu .submenu-item')[7];
+
+            pageMain.classList.add('active', 'page-active');
+            document.getElementById('masterMenu').classList.add('show');
+            pageSub.classList.add('active', 'page-active');
+        });
+    </script>
+
+</body>
+
+</html>

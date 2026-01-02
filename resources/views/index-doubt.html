@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Payaasaan - Company Creation</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ========== TOPBAR (KEPT EXACTLY AS YOUR ORIGINAL) ========== -->
+    <div class="d-flex align-items-center justify-content-between p-3 border-bottom bg-white topbar-fixed"
+        style="height:60px;">
+
+        <div class="left-30">
+            <i class="bi bi-list mobile-toggle d-none" aria-hidden="true"></i>
+
+            <div>
+                <h4 class="logo-title">PAYAASAAN</h4>
+                <p class="logo-sub d-flex text-center">Powered By<br>Thathwam Technologies</p>
+            </div>
+        </div>
+
+        <div class="right-70 d-flex align-items-center justify-content-between" style="width:80%;padding:0px 10px;">
+
+            <div class="breadcrumb-area">
+                <span class="fw-semibold mas">Master</span>
+                <span class="mx-1 text-secondary">/</span>
+                <span class="mas semibold">Create Company</span>
+            </div>
+
+            <div class="d-flex align-items-center gap-4">
+
+                <div class="search-box position-relative" style="width:350px;">
+                    <i class="bi bi-search search-icon"></i>
+                    <input type="text" class="form-control search-input" placeholder="What are you looking for ?">
+                </div>
+
+                <i class="bi bi-bell bell-icon" style="font-size:20px; cursor:pointer;"></i>
+
+                <div class="dropdown">
+                    <div class="profile-group" data-bs-toggle="dropdown">
+                        <img src="siteassets/img/user.png" class="profile-img" alt="">
+                        <span class="username-text">Peter Griffin</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+
+                    <ul class="dropdown-menu dropdown-menu-end mt-2">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Profile</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-key"></i> Change Password</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item logout" href="#"><i class="bi bi-box-arrow-right"></i>
+                                Logout</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- ========== /TOPBAR ========== -->
+
+    <!-- overlay for mobile when sidebar open -->
+    <div id="sidebarOverlay" class="overlay" aria-hidden="true"></div>
+
+    <div style="display:flex; min-height: calc(100vh - 60px);">
+
+       <nav id="sidebar" class="sidebar" aria-label="Main sidebar">
+
+    <div style="padding:10px 7px;">
+        <div class="position-relative">
+            <input type="text" class="form-control" placeholder="Search by Menu" style="padding-right:40px;height:36px;">
+            <i class="bi bi-search"
+                style="
+                position:absolute;
+                right:12px;
+                top:50%;
+                transform:translateY(-50%);
+                color:#777;
+                font-size:16px;
+                
+           ">
+            </i>
+        </div>
+    </div>
+
+
+    <!-- MASTER -->
+    <div class="sidebar-main-item" data-bs-toggle="collapse" data-bs-target="#masterMenu" aria-expanded="false">
+        <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-chevron-right arrow-icon"></i>
+            <span class=" mas">Master</span>
+        </div>
+        <span class="badge bg-primary rounded-pill">10</span>
+    </div>
+
+    <div class="collapse submenu" id="masterMenu">
+        <a href="{{ route('createcompany') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Create Company</div></a>
+        <a href="{{ route('createlegalentity') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Legal Entity Creation</div></a>
+         <a href="{{ route('createBranch') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Branch Creation</div></a>
+         <a href="{{ route('createcategory') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Category Creation</div></a>
+         <a href="{{ route('createholiday') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Create Holidays</div></a>
+         <a href="{{ route('LeaveEntitlement') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Capture Leave Entitlement</div></a>
+         <a href="{{ route('weeklyholiday') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Capture Weekly Holiday</div></a>
+         <a href="{{ route('createshift') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Create Shift Details</div></a>
+         <a href="{{ route('workorder') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Work Order Creation</div></a>
+         <a href="{{ route('location') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Create Location</div></a>
+         <a href="{{ route('loanmaster') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Loan Master Creation</div></a>
+         <a href="{{ route('leavetype') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Leave Type creation</div></a>
+         <a href="{{ route('skillwages') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Capture Skill Wages</div></a>
+         <a href="{{ route('bankdetails') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Bank Details Creation</div></a>
+         <a href="{{ route('fieldcreation') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Field Creation</div></a>
+         <a href="{{ route('formula') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Formula Creation</div></a>
+         <a href="{{ route('contractlabour') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Contract Labour Master Entry</div></a>
+         <a href="{{ route('employee') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Employee Master Entry</div></a>
+         <a href="{{ route('contractor') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Contractor Master Entry</div></a>
+         <a href="{{ route('incometaxsettings') }}"><div class="submenu-item"><i class="bi bi-shield-check"></i> Income Tax Financial Settings</div></a>
+    </div>
+
+    <!-- CONFIG -->
+    <div class="sidebar-main-item" data-bs-toggle="collapse" data-bs-target="#configMenu" aria-expanded="false">
+        <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-chevron-right arrow-icon"></i>
+            <span class="mas">Configurations</span>
+        </div>
+        <span class="badge bg-primary rounded-pill"></span>
+    </div>
+
+    <div class="collapse submenu" id="configMenu">
+        <div class="submenu-item">
+            <i class="bi bi-gear-fill"></i>
+            Capture PF Percentage & Limit
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-gear-fill"></i>
+            Capture ESI Percentage & Limit
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-gear-fill"></i>
+            Configure Professional Slabs
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-gear-fill"></i>
+            Capture EE&ER LWF contribution
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-gear-fill"></i>
+            Configure Revision component
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-gear-fill"></i>
+            Configure Attendance
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-gear-fill"></i>
+            Configure Work Hours
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-gear-fill"></i>
+            Capture Notation
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-gear-fill"></i>
+            LIC Matching
+        </div>
+
+    </div>
+
+    <!-- TRANSACTION -->
+    <div class="sidebar-main-item" data-bs-toggle="collapse" data-bs-target="#transMenu" aria-expanded="false">
+        <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-chevron-right arrow-icon"></i>
+            <span class="mas">Transaction</span>
+        </div>
+        <span class="badge bg-primary rounded-pill"></span>
+    </div>
+
+    <div class="collapse submenu" id="transMenu">
+        <div class="submenu-item">
+           <i class="bi bi-sliders2"></i>
+
+            Capture Monthly Input - addon Earning & Deduction values
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-sliders2"></i>
+            Loan Posting / Loan Deviation
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-sliders2"></i>
+            Revision Entry/Upload
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-sliders2"></i>
+            Employee Transfer
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-sliders2"></i>
+            Upload Attendance
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-sliders2"></i>
+            Update OT Details
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-sliders2"></i>
+            Consolidate Attendance
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-sliders2"></i>
+            Income Tax - Income Matching
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-sliders2"></i>
+            Income Tax - Section Matching
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-sliders2"></i>
+            Income Tax - Declaration Entry/Upload
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-sliders2"></i>
+            Income Tax - Other/Offline Payment Entry
+        </div>
+
+        <div class="submenu-item">
+           <i class="bi bi-sliders2"></i>
+            Income Tax - Challan Entry
+        </div>
+
+        <div class="submenu-item">
+           <i class="bi bi-sliders2"></i>
+            Loan Fore Close / Pre Close
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-sliders2"></i>
+            Loan Reverse Fore Close
+        </div>
+
+    </div>
+    <!-- PROCESS -->
+    <div class="sidebar-main-item" data-bs-toggle="collapse" data-bs-target="#processMenu" aria-expanded="false">
+        <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-chevron-right arrow-icon"></i>
+            <span class=" mas">Process</span>
+        </div>
+        <span class="badge bg-primary rounded-pill"></span>
+    </div>
+
+    <div class="collapse submenu" id="processMenu">
+
+        <div class="submenu-item">
+            <i class="bi bi-arrows-fullscreen"></i>
+            Payroll Process
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-arrows-fullscreen"></i>
+            Full & Final Settlement
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-arrows-fullscreen"></i>
+            Income Tax Process
+        </div>
+
+    </div>
+    <!-- REPORT -->
+    <div class="sidebar-main-item" data-bs-toggle="collapse" data-bs-target="#reportMenu" aria-expanded="false">
+        <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-chevron-right arrow-icon"></i>
+            <span class=" mas">Report</span>
+        </div>
+        <span class="badge bg-primary rounded-pill"></span>
+    </div>
+
+    <div class="collapse submenu" id="reportMenu">
+
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            PF Extract
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            PF Online extract (ECR)
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            ESI Extract
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Professional Tax Statement
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Labour Welfare fund Statement
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Wage Slip
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Wage Slip - Mail
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Wage Summary
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Earnings Summary
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Deduction Summary
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Attendance Report
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Work Order Report
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Form 24Q - Income Tax
+        </div>
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Form 24QA - Income Tax
+        </div>
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Income Tax Statement
+        </div>
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Form 16 of Single Employee
+        </div>
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Form 16 - Mail
+        </div>
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Income Tax - Annual Statement
+        </div>
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Income Tax - Worksheet
+        </div>
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Worksheet - Mail
+        </div>
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Income Tax - Annual Statement
+        </div>
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Loan Statement
+        </div>
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Addition & Separation Report
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Arrear Statement
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-file-earmark-text"></i>
+            Excel Wizard
+        </div>
+
+    </div>
+    <!-- REGISTERS -->
+    <div class="sidebar-main-item" data-bs-toggle="collapse" data-bs-target="#registersMenu" aria-expanded="false">
+        <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-chevron-right arrow-icon"></i>
+            <span class="mas">Registers</span>
+        </div>
+    </div>
+
+    <div class="collapse submenu" id="registersMenu">
+
+        <div class="submenu-item">
+            <i class="bi bi-person-plus"></i>
+            Register
+        </div>
+
+    </div>
+    <!-- RETURNS -->
+    <div class="sidebar-main-item" data-bs-toggle="collapse" data-bs-target="#returnsMenu" aria-expanded="false">
+        <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-chevron-right arrow-icon"></i>
+            <span class="mas">Returns</span>
+        </div>
+    </div>
+
+    <div class="collapse submenu" id="returnsMenu">
+
+        <div class="submenu-item">
+            <i class="bi bi-calculator"></i>
+            Return
+        </div>
+
+    </div>
+    <!-- USER MANAGEMENT -->
+    <div class="sidebar-main-item" data-bs-toggle="collapse" data-bs-target="#userMenu" aria-expanded="false">
+        <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-chevron-right arrow-icon"></i>
+            <span class="mas">User Management</span>
+        </div>
+    </div>
+
+    <div class="collapse submenu" id="userMenu">
+
+        <div class="submenu-item">
+            <i class="bi bi-people-fill"></i>
+            Roles Creation
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-people-fill"></i>
+            Allocate Rights
+        </div>
+
+        <div class="submenu-item">
+            <i class="bi bi-people-fill"></i>    
+            Create Users
+        </div>
+
+    </div>
+
+</nav>
+
+       
+
+        <!-- CONTENT -->
+        <main class="content-area bg-white">
+            <div class="container-fluid mt-3">
+
+                <!-- Agreement Type (Top Radio Buttons) -->
+                <div class="mb-3 d-flex gap-4 align-items-center ">
+                    <label class="d-flex align-items-center gap-2">
+                        <input type="radio" name="agreement" checked>
+                        <span class="mas">Company wise Agreement</span>
+                    </label>
+
+                    <label class="d-flex align-items-center gap-2">
+                        <input type="radio" name="agreement">
+                        <span class="mas">Legal Entity wise Agreement</span>
+                    </label>
+                </div>
+
+                <!-- CARD -->
+                <div class="card p-0 cardborder">
+
+                    <!-- Card Header -->
+                    <div
+                        class="cardheader">
+                        Basic Details
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="p-4">
+
+                        <div class="row g-4">
+
+                            <!-- Company Name -->
+                            <div class="col-md-4">
+                                <label class="form-label">Company Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" placeholder="Enter Group Name">
+                            </div>
+
+                            <!-- Short Name -->
+                            <div class="col-md-4">
+                                <label class="form-label">Company Short Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" placeholder="Enter Company Short Name">
+                            </div>
+
+                            <!-- Reference No -->
+                            <div class="col-md-4">
+                                <label class="form-label">Reference No <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" placeholder="Enter Reference No">
+                            </div>
+
+                            <!-- Address 1 -->
+                            <div class="col-md-6">
+                                <label class="form-label">Head / Corporate Office Address 1</label>
+                                <textarea class="form-control" rows="2" placeholder="Enter Address"></textarea>
+                            </div>
+
+                            <!-- Address 2 -->
+                            <div class="col-md-6">
+                                <label class="form-label">Head / Corporate Office Address 2</label>
+                                <textarea class="form-control" rows="2" placeholder="Enter Address"></textarea>
+                            </div>
+
+                            <!-- State -->
+                            <div class="col-md-3">
+                                <label class="form-label">State <span class="text-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select State</option>
+                                </select>
+                            </div>
+
+                            <!-- City -->
+                            <div class="col-md-3">
+                                <label class="form-label">City <span class="text-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select City</option>
+                                </select>
+                            </div>
+
+                            <!-- Pincode -->
+                            <div class="col-md-3">
+                                <label class="form-label">Pincode <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" placeholder="Enter Pincode">
+                            </div>
+
+                            <!-- Contact Person -->
+                            <div class="col-md-3">
+                                <label class="form-label">Contact Person <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" placeholder="Enter Contact Person">
+                            </div>
+
+                            <!-- Mobile Number -->
+                            <div class="col-md-3">
+                                <label class="form-label">Mobile Number <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" placeholder="Enter Mobile Number">
+                            </div>
+
+                            <!-- Telephone -->
+                            <div class="col-md-3">
+                                <label class="form-label">Telephone No <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" placeholder="Enter Telephone Number">
+                            </div>
+
+                            <!-- Email -->
+                            <div class="col-md-3">
+                                <label class="form-label">Email ID <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" placeholder="Enter Email ID">
+                            </div>
+
+                            <!-- URL -->
+                            <div class="col-md-3">
+                                <label class="form-label">URL <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" placeholder="Enter URL">
+                            </div>
+
+                            <!-- Upload Box -->
+                            <div class="col-md-4">
+                                <label class="form-label">Company Logo</label>
+
+                                <div
+                                    style="
+                        border:2px dashed #3b82f6;
+                        background:#eef4ff;
+                        padding:20px;
+                        text-align:center;
+                        border-radius:12px;">
+
+                                    <p class="mb-2" style="font-size:12px; color:#444;">Drag & Drop Files or</p>
+
+                                    <button class="btn btn-primary px-3 py-1" style="font-size:11px;">
+                                        <i class="bi bi-upload"></i> Browse
+                                    </button>
+
+                                    <p class="mt-2" style="font-size:11px; color:#6b7280;">
+                                        Supported formats JPEG, PNG, WebP
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="card p-0 mt-4 mb-4 cardborder" >
+
+                    <!-- Header -->
+                    <div class="d-flex justify-content-between align-items-center px-3 py-3 cardheader">
+                        <h6 class="m-0 fw-semibold">Registration</h6>
+
+                        <button class="btn btn-primary d-flex align-items-center gap-2" style="font-size:14px;">
+                            <i class="bi bi-plus-square"></i> Add
+                        </button>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="p-4">
+                        <div class="row g-4">
+
+                            <!-- Registration Type -->
+                            <div class="col-md-4">
+                                <label class="form-label">Registration Type <span class="text-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select Type</option>
+                                </select>
+                            </div>
+
+                            <!-- Registration No -->
+                            <div class="col-md-4">
+                                <label class="form-label">Registration No <span class="text-danger">*</span></label>
+                                <input class="form-control" placeholder="Enter Registration No">
+                            </div>
+
+                            <!-- Upload -->
+                            <div class="col-md-4">
+                                <label class="form-label">Attachment</label>
+
+                                <div
+                                    style="
+        border:2px dashed #3b82f6;
+        background:#eef4ff;
+        padding:25px;
+        text-align:center;
+        border-radius:12px;">
+
+                                    <p class="mb-2" style="font-size:14px; color:#444;">Drag & Drop Files or</p>
+
+                                    <!-- Hidden Input -->
+                                    <input type="file" id="companyLogo" hidden>
+
+                                    <!-- Browse Button -->
+                                    <button class="btn btn-primary px-3 py-1" style="font-size:13px;"
+                                        onclick="document.getElementById('companyLogo').click()">
+                                        <i class="bi bi-upload"></i> Browse
+                                    </button>
+
+                                    <p class="mt-2" style="font-size:12px; color:#6b7280;">
+                                        Supported formats JPEG, PNG, WebP
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- =======================
+        AGREEMENT SECTION
+    ======================= -->
+                <div class="card p-0 mb-4 cardborder">
+
+                    <!-- Header -->
+                    <div
+                        class="cardheader">
+                        Agreement
+                    </div>
+
+                    <!-- Body -->
+                    <div class="p-4">
+                        <div class="row g-4">
+
+                            <div class="col-md-4">
+                                <label class="form-label">Agreement Reference No <span
+                                        class="text-danger">*</span></label>
+                                <input class="form-control" placeholder="Enter Agreement Reference No">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label">Agreement Name <span class="text-danger">*</span></label>
+                                <input class="form-control" placeholder="Enter Agreement Name">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label">Nature of Agreement <span
+                                        class="text-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select</option>
+                                </select>
+                            </div>
+
+                            <!-- Mode of document -->
+                            <div class="col-md-4">
+                                <label class="form-label">Mode of Document <span class="text-danger">*</span></label>
+                                <input class="form-control" placeholder="Enter">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label">No. of Legal Entity <span
+                                        class="text-danger">*</span></label>
+                                <input class="form-control" placeholder="Enter">
+                            </div>
+
+                            <!-- Agreement Date -->
+                            <div class="col-md-4">
+                                <label class="form-label">Agreement Date <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input type="date" class="form-control" placeholder="Select">
+
+                                </div>
+                            </div>
+
+                            <!-- Agreement Type -->
+                            <div class="col-md-4">
+                                <label class="form-label">Agreement Type <span class="text-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select State</option>
+                                </select>
+                            </div>
+
+                            <!-- Vertical -->
+                            <div class="col-md-4">
+                                <label class="form-label">Vertical <span class="text-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select</option>
+                                </select>
+                            </div>
+
+                            <!-- Effective From -->
+                            <div class="col-md-4">
+                                <label class="form-label">Effective From <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input class="form-control" type="date" placeholder="Select">
+
+                                </div>
+                            </div>
+
+                            <!-- Effective To -->
+                            <div class="col-md-4">
+                                <label class="form-label">Effective To <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input class="form-control" type="date" placeholder="Select">
+
+                                </div>
+                            </div>
+
+                            <!-- Renewal -->
+                            <div class="col-md-4">
+                                <label class="form-label">Renewal Due On <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input class="form-control" type="date" placeholder="Select">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- =======================
+        SCOPE SECTION
+    ======================= -->
+                <div class="card p-0 mb-5 cardborder">
+
+                    <!-- Header -->
+                    <div
+                        class="cardheader">
+                        Scope
+                    </div>
+
+                    <div class="p-4">
+                        <div class="row g-4">
+
+                            <div class="col-md-3">
+                                <label class="form-label">Domain Name <span class="text-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="form-label">Type of Organization <span
+                                        class="text-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="form-label">State <span class="text-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select</option>
+                                    
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="form-label">Act <span class="text-danger">*</span></label>
+                                <select class="form-select">
+                                    <option>Select</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <!-- Buttons -->
+
+
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end gap-3 sticky-footer mt-4">
+                    <button class="btn btn-outline-primary px-4">Save Draft</button>
+                    <button class="btn btn-primary px-4">Submit</button>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <footer class="app-footer text-center">
+       All rights reserved © <span id="currentYear"></span> Payaasaan
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Elements
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+
+        // Use event delegation for the toggle icon - works even if class d-none exists
+        document.addEventListener('click', (e) => {
+            const toggle = e.target.closest('.mobile-toggle');
+            if (toggle) {
+                // toggle sidebar open/close
+                const isClosed = sidebar.classList.contains('closed');
+                if (isClosed) {
+                    sidebar.classList.remove('closed');
+                    overlay.classList.add('show');
+                } else {
+                    sidebar.classList.add('closed');
+                    overlay.classList.remove('show');
+                }
+            }
+
+            // close sidebar when overlay clicked
+            if (e.target === overlay) {
+                sidebar.classList.add('closed');
+                overlay.classList.remove('show');
+            }
+        });
+
+        // Hide sidebar by default on small screens, show on desktop
+        function setSidebarStateOnLoad() {
+            if (window.matchMedia('(max-width: 768px)').matches) {
+                sidebar.classList.add('closed');
+                overlay.classList.remove('show');
+            } else {
+                // ensure sidebar visible on desktop
+                sidebar.classList.remove('closed');
+                overlay.classList.remove('show');
+            }
+        }
+
+        // run on load
+        setSidebarStateOnLoad();
+
+        // on resize adjust state (keeps desktop open, mobile closed)
+        window.addEventListener('resize', () => {
+            setSidebarStateOnLoad();
+        });
+
+        // make main menu clickable to set active state and auto-toggle others (optional behavior)
+        document.querySelectorAll('.sidebar-main-item').forEach(item => {
+            item.addEventListener('click', (ev) => {
+                // mark clicked main menu active and remove active from siblings
+                document.querySelectorAll('.sidebar-main-item')
+                    .forEach(i => {
+                        if (!i.classList.contains('page-active')) i.classList.remove('active');
+                    });
+
+                item.classList.add('active');
+
+                // allow bootstrap collapse to manage submenu show/hide; when opening, show overlay on mobile
+                const target = item.getAttribute('data-bs-target');
+                if (target) {
+                    // after a small delay check if submenu opened and if on mobile show overlay
+                    setTimeout(() => {
+                        const panel = document.querySelector(target);
+                        if (panel && panel.classList.contains('show') && window.matchMedia(
+                                '(max-width:768px)').matches) {
+                            overlay.classList.add('show');
+                            sidebar.classList.remove('closed');
+                        } else {
+                            overlay.classList.remove('show');
+                        }
+                    }, 220);
+                }
+            });
+        });
+
+        // submenu item click - mark active and close sidebar on mobile (optional UX)
+        document.querySelectorAll('.submenu-item').forEach(si => {
+            si.addEventListener('click', () => {
+                document.querySelectorAll('.submenu-item')
+                    .forEach(s => {
+                        if (!s.classList.contains('page-active')) s.classList.remove('active');
+                    });
+
+                si.classList.add('active');
+
+                // on small screens auto-close sidebar
+                if (window.matchMedia('(max-width:768px)').matches) {
+                    sidebar.classList.add('closed');
+                    overlay.classList.remove('show');
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // ADD PAGE-BASED ACTIVE (permanent)
+            const pageMain = document.querySelector('[data-bs-target="#masterMenu"]');
+            const pageSub = document.querySelectorAll('#masterMenu .submenu-item')[0];
+
+            pageMain.classList.add('active', 'page-active');
+            document.getElementById('masterMenu').classList.add('show');
+            pageSub.classList.add('active', 'page-active');
+        });
+    </script>
+
+</body>
+
+</html>
