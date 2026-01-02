@@ -1,29 +1,31 @@
-# Use official PHP image with extensions
+# Stage 0: PHP + Apache
 FROM php:8.2-apache
 
-# Install dependencies
-RUN apt-get update && apt-get install -y \
-    git unzip libzip-dev libonig-dev libpq-dev \
-    && docker-php-ext-install pdo_mysql mbstring zip \
-    && a2enmod rewrite
+# Enable Apache mod_rewrite
+RUN a2enmod rewrite
 
-# Set working directory
+# Install system dependencies and PHP extensions
+RUN apt-get update && apt-get install -y \
+    libzip-dev unzip git && docker-php-ext-install zip pdo pdo_mysql
+
+# Set working directory to /var/www/html
 WORKDIR /var/www/html
 
-# Copy project files
+# Copy the entire project to /var/www/html
 COPY . .
 
-# Install Composer
+# Set Apache to serve from Laravel public folder
+RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|' /etc/apache2/sites-available/000-default.conf
+RUN sed -i 's|<Directory /var/www/>|<Directory /var/www/html/public/>|' /etc/apache2/apache2.conf
+
+# Copy Composer from official image
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Install PHP dependencies
+# Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
-
-# Set file permissions
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Expose port 80
 EXPOSE 80
 
-# Start Apache
+# Start Apache in foreground
 CMD ["apache2-foreground"]
